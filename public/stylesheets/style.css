@@ -8,6 +8,7 @@ a {
   color: #00B7FF;
 }
 image{border: 0px;}
+.bg{background:url(../images/m_ipad_index.png)  no-repeat ;}
 #main{
     margin: 0 auto;
     width: 500px;
