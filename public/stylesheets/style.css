@@ -3,19 +3,19 @@ body {
     font-family: "Helvetica Neue", Arial, sans-serif;
     margin: 0 auto;
   padding: 50px;
-
+    background: #AABBA3;
 }
 
 a {
   color: #00B7FF;
 }
 image{border: 0px;}
-
+.blacktheme{    background-image:url(../images/m_ipad_bg.png) ;}
+.whitetheme{  background-image:url(../images/m_ipad_bg_white.png) ;}
 #main{
     margin: 0 auto;
     width: 500px;
     height: 700px;
-    background:url(../images/m_ipad_bg.png)  no-repeat ;
     background-size: 100% 100%;
     overflow: hidden;
     cursor:pointer
