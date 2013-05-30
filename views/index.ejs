@@ -10,8 +10,9 @@
 <body>
 
 <div id="main">
-    <div class="content">
-        <div class="lock_bar"></div>
+    <div class="content" style="display: none">
+        <div id="lock_screen_model"   class="model step1">
+          <div class="lock_bar"></div>
         <div class="lock_header">
             <span class="time"></span>
             <span class="day"></span>
@@ -19,10 +20,19 @@
         <div class="lock_slide">
             <div class="lock_slide_button">
                 <div class="slidebutton">
-                    <img src="images/m_lock_slide_button.png">
+                    <img src="images/m_lock_slide_button.png" alt="unlock"/>
                 </div>
             </div>
         </div>
+       </div>
+        <div id="index_screen_model" class="model step2">
+              <div>
+            <img src="images/ipad_index_bg.png"/></div>
+        </div>
+    </div>
+    <div class="home_button">
+
+        <img class="home" src="images/ipad_home_button.png" alt="home"/>
     </div>
 </div>
 
@@ -34,14 +44,33 @@
 
 <script>
     $(document).ready(function () {
+        //preload image
         $("body").queryLoader2();
+
+        var pressHomeTime;
+        $(".home").on("mousedown", function () {
+            pressHomeTime = Date.parse(new Date());
+        })
+        $(".home").on("mouseup", function () {
+            var delay = Date.parse(new Date()) - pressHomeTime;
+            if (delay < 2000) {
+                //GoHome();
+            }
+            if (delay >= 2000) {
+                Starting();
+            }
+        })
+
+
+    });
+    var Starting = function () {
+        $(".content").fadeIn();
+        ChangeScreenIn(1);
+        //header time
         $(".lock_header .time").html(moment().format('h:mm'));
         $(".lock_header .day").html(moment().format("MMM Do YY"));
 
-    });
-    $(function () {
-
-
+        //slide
         var draglen = 0;
         $(" .slidebutton").draggable({
             axis:"x",
@@ -54,17 +83,20 @@
                 draglen++;
             },
             stop:function () {
-                console.log(draglen);
                 if (draglen > 10 && draglen < 60) {
 
-                   $('.content').fadeOut('fast', function () {
-                       $("#main").css("background-image","url(images/m_ipad_index.png)")
-                    });
+                   ChangeScreenIn(2)
 
                 }
             }
         });
-    });
+    }
+
+    var ChangeScreenIn=function(step){
+        $(".model").css("display", "none")
+        $(".step"+step).fadeIn();
+    }
+
 </script>
 ;
 </html>

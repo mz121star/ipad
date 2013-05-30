@@ -25,9 +25,19 @@ image{border: 0px;}
     height: 574px;
     position: absolute;
     background:url(../images/ipad_bg_blue.png)  no-repeat ;
-    background-size: 100% 100%;;
+    background-size: 100% 100%;
+
+}
+#main .home_button{
+    width: 37px;
+    position: absolute;
+    margin-top: 647px;
+    margin-left: 231px;
 }
 
+#main .home_button img{
+    width: 100%;
+}
 #main .content .lock_bar{
     height: 13px;
     width: 398px;
@@ -44,8 +54,11 @@ image{border: 0px;}
 #main .content .lock_header .time {
     font-size: 38px;
     color: #ffffff;
-    margin-left: 140px;
+    margin-left: 143px;
     clear: right;
+    width: 100px;
+    text-align: center;
+    display: inline-block;
 
 }
 #main .content .lock_header .day {
@@ -77,3 +90,12 @@ image{border: 0px;}
 #main .content .lock_slide .lock_slide_button img{
     width: 100%;
 }
+/*
+model
+*/
+.model{display: none;}
+.model>div{width: 398px;height: 100%}
+/*
+index_screen_model
+*/
+#index_screen_model img{width: 100%; height: 100%;}
