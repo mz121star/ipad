@@ -1,20 +1,22 @@
+
 body {
+    font-family: "Helvetica Neue", Arial, sans-serif;
     margin: 0 auto;
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+
 }
 
 a {
   color: #00B7FF;
 }
 image{border: 0px;}
-.bg{background:url(../images/m_ipad_index.png)  no-repeat ;}
+
 #main{
     margin: 0 auto;
     width: 500px;
     height: 700px;
-    background:url(../images/m_ipad_black.png)  no-repeat ;
-    background-size: 100% 100%;;
+    background:url(../images/m_ipad_bg.png)  no-repeat ;
+    background-size: 100% 100%;
     overflow: hidden;
     cursor:pointer
 }
@@ -22,6 +24,8 @@ image{border: 0px;}
     margin: 61px 52px;
     height: 574px;
     position: absolute;
+    background:url(../images/ipad_bg_blue.png)  no-repeat ;
+    background-size: 100% 100%;;
 }
 
 #main .content .lock_bar{
@@ -30,11 +34,32 @@ image{border: 0px;}
     background: url(../images/m_ipad_lock_header.png) no-repeat;
     background-size: 100% 100%;
 }
+#main .content .lock_header{
+    height: 62px;
+    width: 398px;
+    background: url(../images/ipad_lock_header_notime.png) no-repeat;
+    background-size: 100% 100%;
+}
 
+#main .content .lock_header .time {
+    font-size: 38px;
+    color: #ffffff;
+    margin-left: 140px;
+    clear: right;
+
+}
+#main .content .lock_header .day {
+    font-size: 14px;
+    color: #ffffff;
+    margin-left: 157px;
+    clear: left;
+    display: block;
+
+}
 #main .content .lock_slide{
     height: 74px;
     width: 398px;
-    background: url(../images/m_lock_slide.png) no-repeat;
+    background: url(../images/m_lock_slide_alpha.png) no-repeat;
     background-size: 100% 100%;
     position: absolute;
     bottom: 0px;
