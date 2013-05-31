@@ -8,8 +8,8 @@
 
 </head>
 <body>
-<div id="toolbar"><a class="w" href="javascript:;"> white</a>|<a class="b" href="javascript:;"> black</a> </div>
-<div id="main" class="whitetheme">
+<div id="toolbar"><a class="w" href="javascript:;"> white</a>|<a class="b" href="javascript:;"> black</a> <em>长按HOME键开机</em> </div>
+<div id="main" class="blacktheme">
     <div class="content" style="display: none">
         <div id="lock_screen_model"   class="model step1">
           <div class="lock_bar"></div>
@@ -32,7 +32,7 @@
     </div>
     <div class="home_button">
 
-        <img class="home" src="images/ipad_home_button_white.png" alt="home"/>
+        <img class="home" src="images/ipad_home_button.png" alt="home"/>
     </div>
 </div>
 
@@ -41,75 +41,6 @@
 <script src="js/jquery-ui.js"></script>
 <script src="js/jquery.queryloader2.js"></script>
 <script src="js/moment.min.js"></script>
+<script src="js/ipad.js"></script>
 
-<script>
-    $(document).ready(function () {
-        //preload image
-        $("body").queryLoader2();
-
-        var pressHomeTime;
-        $(".home").on("mousedown", function () {
-            pressHomeTime = Date.parse(new Date());
-        })
-        $(".home").on("mouseup", function () {
-            var delay = Date.parse(new Date()) - pressHomeTime;
-            if (delay < 2000) {
-                //GoHome();
-            }
-            if (delay >= 2000) {
-                Starting();
-            }
-        });
-        $( ".w" ).click(function() {
-
-            $( "#main" ).addClass( "whitetheme" ,3000);
-            $( "#main" ).removeClass( "blacktheme" ,1000);
-            $(".home").attr("src","images/ipad_home_button_white.png")
-            return false;
-        });
-        $( ".b" ).click(function() {
-            $( "#main" ).addClass( "blacktheme" ,3000);
-            $( "#main" ).removeClass( "whitetheme" ,1000);
-            $(".home").attr("src","images/ipad_home_button.png")
-            return false;
-        });
-
-
-    });
-    var Starting = function () {
-        $(".content").fadeIn();
-        ChangeScreenIn(1);
-        //header time
-        $(".lock_header .time").html(moment().format('h:mm'));
-        $(".lock_header .day").html(moment().format("MMM Do YY"));
-
-        //slide
-        var draglen = 0;
-        $(" .slidebutton").draggable({
-            axis:"x",
-            containment:"parent",
-            revert:true,
-            start:function () {
-                draglen = 0;
-            },
-            drag:function () {
-                draglen++;
-            },
-            stop:function () {
-                if (draglen > 10 && draglen < 60) {
-
-                   ChangeScreenIn(2)
-
-                }
-            }
-        });
-    }
-
-    var ChangeScreenIn=function(step){
-        $(".model").css("display", "none")
-        $(".step"+step).fadeIn();
-    }
-
-</script>
-;
 </html>
